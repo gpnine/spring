@@ -1,4 +1,4 @@
-package com.zcl.study.spring.dao;
+package com.zcl.study.spring.model;
 
 /**
  * spring-demo .
@@ -7,17 +7,17 @@ package com.zcl.study.spring.dao;
  * @author: Chenglin Zhu .
  * @date: 20-3-14 .
  */
-public class NewSingleton1 {
-	private static NewSingleton1 instance;
+public class LanSingleton1 {
+	private static LanSingleton1 instance;
 
-	private NewSingleton1() {
+	private LanSingleton1() {
 	}
 
-	public static NewSingleton1 getInstance() {
+	public static LanSingleton1 getInstance() {
 		if (instance == null) {
-			synchronized (NewSingleton1.class) {
+			synchronized (LanSingleton1.class) {
 				if (instance == null) {
-					instance = new NewSingleton1();
+					instance = new LanSingleton1();
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-package com.zcl.study.spring.dao;
+package com.zcl.study.spring.model;
 
 /**
  * spring-demo .
@@ -7,9 +7,9 @@ package com.zcl.study.spring.dao;
  * @author: Chenglin Zhu .
  * @date: 20-3-14 .
  */
-public class Singleton {
-	public static final Singleton INSTANCE = new Singleton();
+public class ESingleton {
+	public static final ESingleton INSTANCE = new ESingleton();
 
-	private Singleton() {
+	private ESingleton() {
 	}
 }

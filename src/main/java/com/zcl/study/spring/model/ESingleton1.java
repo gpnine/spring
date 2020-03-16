@@ -1,4 +1,4 @@
-package com.zcl.study.spring.dao;
+package com.zcl.study.spring.model;
 
 /**
  * spring-demo .
@@ -7,6 +7,6 @@ package com.zcl.study.spring.dao;
  * @author: Chenglin Zhu .
  * @date: 20-3-14 .
  */
-public enum Singleton1 {
+public enum ESingleton1 {
 	INSANCE,
 }

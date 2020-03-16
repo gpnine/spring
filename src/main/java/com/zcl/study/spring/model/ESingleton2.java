@@ -1,4 +1,4 @@
-package com.zcl.study.spring.dao;
+package com.zcl.study.spring.model;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -10,28 +10,28 @@ import java.util.Properties;
  * @author: Chenglin Zhu .
  * @date: 20-3-14 .
  */
-public class Singleton2 {
-	public static Singleton2 INSTANCE;
+public class ESingleton2 {
+	public static ESingleton2 INSTANCE;
 
 	private String info;
 
 	static {
 		try {
 			Properties properties = new Properties();
-			properties.load(Singleton2.class.getClassLoader().getResourceAsStream("single.properties"));
-			INSTANCE = new Singleton2(properties.getProperty("info"));
+			properties.load(ESingleton2.class.getClassLoader().getResourceAsStream("single.properties"));
+			INSTANCE = new ESingleton2(properties.getProperty("info"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private Singleton2(String info) {
+	private ESingleton2(String info) {
 		this.info = info;
 	}
 
 	@Override
 	public String toString() {
-		return "Singleton2{" +
+		return "ESingleton2{" +
 				"info='" + info + '\'' +
 				'}';
 	}

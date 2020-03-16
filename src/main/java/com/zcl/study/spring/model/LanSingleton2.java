@@ -1,4 +1,4 @@
-package com.zcl.study.spring.dao;
+package com.zcl.study.spring.model;
 
 /**
  * spring-demo .
@@ -7,15 +7,15 @@ package com.zcl.study.spring.dao;
  * @author: Chenglin Zhu .
  * @date: 20-3-14 .
  */
-public class NewSingleton2 {
-	private NewSingleton2() {
+public class LanSingleton2 {
+	private LanSingleton2() {
 	}
 
-	public static NewSingleton2 getInstance() {
+	public static LanSingleton2 getInstance() {
 		return InnerClass.instance;
 	}
 
 	private static class InnerClass {
-		private static final NewSingleton2 instance = new NewSingleton2();
+		private static final LanSingleton2 instance = new LanSingleton2();
 	}
 }
