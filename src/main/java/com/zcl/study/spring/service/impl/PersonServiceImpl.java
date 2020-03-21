@@ -1,6 +1,7 @@
 package com.zcl.study.spring.service.impl;
 
 import com.zcl.study.spring.dao.PersonDao;
+import com.zcl.study.spring.model.Person;
 import com.zcl.study.spring.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,20 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public String personName() {
 		return personDao.getPersonName();
+	}
+
+	@Override
+	public void testPerson(Person person) {
+		System.out.println("保存操作");
+	}
+
+	@Override
+	public int insertPerson(Person person) {
+		return personDao.addPerson(person);
+	}
+
+	@Override
+	public boolean deletePerson(String id) {
+		return personDao.deletePerson(id);
 	}
 }

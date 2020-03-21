@@ -1,5 +1,7 @@
 package com.zcl.study.spring.service;
 
+import com.zcl.study.spring.model.Person;
+
 /**
  * spring-study .
  *
@@ -9,4 +11,10 @@ package com.zcl.study.spring.service;
  */
 public interface PersonService {
 	String personName();
+
+	int insertPerson(Person person);
+
+	boolean deletePerson(String id);
+
+	void testPerson(Person person);
 }
