@@ -7,7 +7,7 @@ import java.lang.reflect.Proxy;
 /**
  * spring-demo .
  *
- * @description: .
+ * @description: jdk动态代理.
  * @author: Chenglin Zhu .
  * @date: 20-3-21 .
  */

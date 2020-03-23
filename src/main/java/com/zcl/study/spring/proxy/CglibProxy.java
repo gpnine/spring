@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 /**
  * spring-demo .
  *
- * @description: .
+ * @description: cglib动态代理.
  * @author: Chenglin Zhu .
  * @date: 20-3-21 .
  */
