@@ -6,3 +6,9 @@ spring:
     password: 123456
     virtual-host: /
     publisher-confirm-type: correlated
+  security:
+    basic:
+      enabled: false
+    user:
+      name: admin
+      password: admin

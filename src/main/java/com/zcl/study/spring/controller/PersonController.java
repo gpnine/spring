@@ -5,6 +5,8 @@ import com.zcl.study.spring.proxy.CglibProxy;
 import com.zcl.study.spring.proxy.PersonProxy;
 import com.zcl.study.spring.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,5 +50,17 @@ public class PersonController {
 		String id = request.getParameter("id");
 		PersonService proxyService = (PersonService) new CglibProxy().getProxy(personService);
 		return proxyService.deletePerson(id);
+	}
+
+	@GetMapping("/info")
+	public String productInfo(){
+		String currentUser;
+		Object principl = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if(principl instanceof UserDetails) {
+			currentUser = ((UserDetails)principl).getUsername();
+		}else {
+			currentUser = principl.toString();
+		}
+		return " some product info,currentUser is: "+currentUser;
 	}
 }
