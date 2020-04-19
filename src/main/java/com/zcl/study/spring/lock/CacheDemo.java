@@ -15,7 +15,9 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author Torey
+ * 读写锁.
+ *
+ * @author Torey.
  */
 public class CacheDemo {
 	// 创建一个缓存对象
