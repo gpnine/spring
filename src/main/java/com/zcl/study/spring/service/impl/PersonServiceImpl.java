@@ -4,6 +4,7 @@ import com.zcl.study.spring.dao.PersonDao;
 import com.zcl.study.spring.model.Person;
 import com.zcl.study.spring.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
@@ -37,5 +38,10 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public boolean deletePerson(String id) {
 		return personDao.deletePerson(id);
+	}
+
+	@Scheduled(cron = "0/1 * * * * ?")
+	public void getName(){
+		System.out.println(personDao.getPersonName());
 	}
 }

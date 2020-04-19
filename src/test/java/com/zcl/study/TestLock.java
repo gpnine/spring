@@ -1,4 +1,6 @@
-package com.zcl.study.spring.lock;
+package com.zcl.study;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -13,6 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class TestLock {
 
 	private Lock lock = new ReentrantLock();
+	private Lock fairLock = new ReentrantLock(true);
 	private static int count;
 
 	private void add() {
@@ -24,7 +27,8 @@ public class TestLock {
 		}
 	}
 
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public void testAdd() throws InterruptedException {
 		TestLock testLock = new TestLock();
 		new Thread(() -> {
 			for (int i = 0; i < 10000; i++) {
@@ -40,4 +44,15 @@ public class TestLock {
 		System.out.println(count);
 	}
 
+
+	@Test
+	public void testFair() {
+		if (lock.tryLock()) {
+			try {
+				System.out.println(Thread.currentThread().getName());
+			} finally {
+				lock.unlock();
+			}
+		}
+	}
 }
