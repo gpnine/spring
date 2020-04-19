@@ -9,22 +9,23 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
 //nio 客户端
-public class Client{
+public class Client {
 	//客户端信道选择器,轮询读取服务端返回数据
 	private Selector selector;
 	//连接信道
 	private SocketChannel sc;
-	public Client(){
+
+	public Client() {
 		try {
-			this.sc=SocketChannel.open();//打开信道
-			sc.connect(new InetSocketAddress("127.0.0.1",9527));////连接服务端
+			this.sc = SocketChannel.open();//打开信道
+			sc.connect(new InetSocketAddress("127.0.0.1", 9527));////连接服务端
 			sc.configureBlocking(false);//设置非阻塞
 			selector = Selector.open();//必须打开
 			//将当前客户端注册到多路复用器上,并设置为可读状态
 			sc.register(this.selector, SelectionKey.OP_READ);
 			//开启线程,一直轮询
-			new Thread(()->{
-				while(true){//一直循环
+			new Thread(() -> {
+				while (true) {//一直循环
 					try {
 						this.selector.select();//多路复用器开始监听
 						//获取已经注册在多了复用器上的key通道集
@@ -33,9 +34,9 @@ public class Client{
 						while (keys.hasNext()) {
 							SelectionKey key = keys.next();//获取key
 							//如果是有效的
-							if(key.isValid()){
+							if (key.isValid()) {
 								// 如果为可读状态,读取服务端返回的数据
-								if(key.isReadable()){
+								if (key.isReadable()) {
 									this.read(key);
 								}
 							}
@@ -62,7 +63,7 @@ public class Client{
 			//3 读取数据
 			int count = sc.read(readBuf);
 			//4 如果没有数据
-			if(count == -1){
+			if (count == -1) {
 				key.channel().close();
 				key.cancel();
 				return;
@@ -86,7 +87,7 @@ public class Client{
 		ByteBuffer writebuf = ByteBuffer.allocate(1024);
 		Client client = new Client();
 		try {
-			while(true){
+			while (true) {
 				//定义一个字节数组，然后使用系统录入功能：
 				byte[] bytes = new byte[1024];
 				System.in.read(bytes);
@@ -102,7 +103,7 @@ public class Client{
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			if(client.sc != null){
+			if (client.sc != null) {
 				try {
 					client.sc.close();
 				} catch (IOException e) {
