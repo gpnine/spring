@@ -26,10 +26,10 @@ public class CacheDemo {
 	static ReadWriteLock rwLock = new ReentrantReadWriteLock();
 
 	/**
-	 * 定义一个获取数据的方法
+	 * 定义一个获取数据的方法.
 	 *
-	 * @param key
-	 * @return
+	 * @param key .
+	 * @return .
 	 */
 	public Object getData(String key) {
 		// 开启读锁
