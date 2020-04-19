@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @com.zcl.study.spring.annotation.Asian
-public class Asian extends Person{
+public class Asian extends Person {
 
 	private String name;
 	private int age;
