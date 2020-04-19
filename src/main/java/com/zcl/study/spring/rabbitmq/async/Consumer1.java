@@ -30,7 +30,7 @@ public class Consumer1 {
 		channel.basicConsume(QUEUE_NAME, false, new DefaultConsumer(channel) {
 			@Override
 			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-				System.out.println("reciver :"+new String(body, StandardCharsets.UTF_8));
+				System.out.println("reciver :" + new String(body, StandardCharsets.UTF_8));
 			}
 		});
 
