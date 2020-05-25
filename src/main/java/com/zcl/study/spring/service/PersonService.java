@@ -17,4 +17,6 @@ public interface PersonService {
 	boolean deletePerson(String id);
 
 	void testPerson(Person person);
+
+	void sayHello();
 }

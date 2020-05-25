@@ -17,31 +17,37 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonServiceImpl implements PersonService {
 
-	@Autowired
-	private PersonDao personDao;
+    @Autowired
+    private PersonDao personDao;
 
-	@Override
-	public String personName() {
-		return personDao.getPersonName();
-	}
+    @Override
+    public String personName() {
+        return personDao.getPersonName();
+    }
 
-	@Override
-	public void testPerson(Person person) {
-		System.out.println("保存操作");
-	}
+    @Override
+    public void testPerson(Person person) {
+        System.out.println("保存操作");
+    }
 
-	@Override
-	public int insertPerson(Person person) {
-		return personDao.addPerson(person);
-	}
+    @Override
+    public void sayHello() {
+        System.out.println("hello");
+    }
 
-	@Override
-	public boolean deletePerson(String id) {
-		return personDao.deletePerson(id);
-	}
+    @Override
+    public int insertPerson(Person person) {
+        return personDao.addPerson(person);
+    }
 
-	@Scheduled(cron = "0/1 * * * * ?")
-	public void getName(){
-		System.out.println(personDao.getPersonName());
-	}
+
+    @Override
+    public boolean deletePerson(String id) {
+        return personDao.deletePerson(id);
+    }
+
+    @Scheduled(cron = "0/1 * * * * ?")
+    public void getName() {
+        System.out.println(personDao.getPersonName());
+    }
 }
