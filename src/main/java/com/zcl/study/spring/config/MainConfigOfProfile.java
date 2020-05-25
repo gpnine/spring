@@ -4,7 +4,6 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.util.StringValueResolver;
@@ -20,7 +19,7 @@ import java.beans.PropertyVetoException;
  * @date: 20-3-11 .
  */
 @PropertySource("classpath:/db.properties")
-@Configuration
+//@Configuration
 public class MainConfigOfProfile implements EmbeddedValueResolverAware {
 
 	@Value("${db.username}")

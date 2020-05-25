@@ -12,3 +12,7 @@ spring:
     user:
       name: admin
       password: admin
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /

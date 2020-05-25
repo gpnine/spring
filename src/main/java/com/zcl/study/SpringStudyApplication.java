@@ -1,15 +1,15 @@
 package com.zcl.study;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication
-@EnableScheduling
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class SpringStudyApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringStudyApplication.class, args);
+		SpringApplication.run(SpringStudyApplication.class, args);
 	}
 }

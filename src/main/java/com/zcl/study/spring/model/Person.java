@@ -1,6 +1,8 @@
 package com.zcl.study.spring.model;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.InitializingBean;
+
+import javax.annotation.PostConstruct;
 
 /**
  * spring-study .
@@ -9,12 +11,20 @@ import org.springframework.stereotype.Component;
  * @author: Chenglin Zhu .
  * @date: 20-3-10 .
  */
-@Component
-public class Person {
+public class Person implements InitializingBean {
 
 	private String name;
 	private int age;
 	private String nickName;
+
+	public void initPerson(){
+		System.out.println("Person ..... init");
+	}
+
+	@PostConstruct
+	public void init(){
+		System.out.println("PostConstruct init");
+	}
 
 	@Override
 	public String toString() {
@@ -56,5 +66,10 @@ public class Person {
 		this.name = name;
 		this.age = age;
 		this.nickName = nickName;
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("afterPropertiesSet...方法");
 	}
 }
