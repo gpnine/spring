@@ -1,6 +1,6 @@
 spring:
   rabbitmq:
-    host: 127.0.0.1
+    host: 192.168.206.8
     port: 15672
     username: admin
     password: 123456
@@ -16,3 +16,22 @@ spring:
     view:
       suffix: .jsp
       prefix: /
+  redis:
+    port: 6379
+    password:
+    host: 192.168.206.8
+    lettuce:
+      pool:
+        max-idle: 6
+        max-active: 10
+        min-idle: 2
+        max-wait: 1000
+      shutdown-timeout: 100
+    jedis:
+      pool:
+        max-idle: 6
+        max-active: 10
+        min-idle: 2
+    timeout: 2000
+server:
+  port: 8080

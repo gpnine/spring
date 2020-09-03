@@ -18,7 +18,7 @@ public class Client {
 	public Client() {
 		try {
 			this.sc = SocketChannel.open();//打开信道
-			sc.connect(new InetSocketAddress("127.0.0.1", 9527));////连接服务端
+			sc.connect(new InetSocketAddress("192.168.206.8", 9527));////连接服务端
 			sc.configureBlocking(false);//设置非阻塞
 			selector = Selector.open();//必须打开
 			//将当前客户端注册到多路复用器上,并设置为可读状态

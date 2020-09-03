@@ -1,8 +1,8 @@
-package com.zfsoft.util;
+package com.zcl.study.spring.util;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 

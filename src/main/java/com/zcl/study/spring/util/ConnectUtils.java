@@ -20,7 +20,7 @@ public class ConnectUtils {
 		ConnectionFactory factory = new ConnectionFactory();
 		factory.setUsername("admin");
 		factory.setPassword("123456");
-		factory.setHost("127.0.0.1");
+		factory.setHost("192.168.206.8");
 		factory.setVirtualHost("/");
 		factory.setPort(5672);
 		return factory.newConnection();

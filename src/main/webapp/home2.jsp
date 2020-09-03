@@ -9,15 +9,8 @@
 <html>
 <head>
     <title>Title</title>
-    <%
-//        request.setAttribute("name","tom");
-//        request.setAttribute("name","jerry");
-//        request.removeAttribute("name");
-
-        session.setAttribute("u",new Person());
-    %>
 </head>
 <body>
-<h1>home</h1>
+<h1>用户:${u}</h1>
 </body>
 </html>

@@ -25,7 +25,7 @@ public class TestNio {
 	public void client() throws IOException {
 		//1. 获取通道
 		SocketChannel schannel
-				= SocketChannel.open(new InetSocketAddress("127.0.0.1", 9898));
+				= SocketChannel.open(new InetSocketAddress("192.168.206.8", 9898));
 		//2.切换非阻塞模式
 		schannel.configureBlocking(false);
 		//3.分配指定大小的缓冲区
