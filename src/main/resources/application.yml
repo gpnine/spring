@@ -34,4 +34,5 @@ spring:
         min-idle: 2
     timeout: 2000
 server:
-  port: 8080
+  port: 8088
+  address: 0.0.0.0
