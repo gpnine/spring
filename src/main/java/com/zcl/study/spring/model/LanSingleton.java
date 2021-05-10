@@ -8,20 +8,20 @@ package com.zcl.study.spring.model;
  * @date: 20-3-14 .
  */
 public class LanSingleton {
-	private static LanSingleton instance;
+    private static LanSingleton instance;
 
-	private LanSingleton() {
-	}
+    private LanSingleton() {
+    }
 
-	public static LanSingleton getInstance() {
-		if (instance == null) {
-			instance = new LanSingleton();
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		return instance;
-	}
+    public static LanSingleton getInstance() {
+        if (instance == null) {
+            instance = new LanSingleton();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return instance;
+    }
 }

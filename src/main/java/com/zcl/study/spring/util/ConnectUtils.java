@@ -16,13 +16,13 @@ import java.util.concurrent.TimeoutException;
  */
 public class ConnectUtils {
 
-	public static Connection getConnection() throws IOException, TimeoutException {
-		ConnectionFactory factory = new ConnectionFactory();
-		factory.setUsername("admin");
-		factory.setPassword("123456");
-		factory.setHost("192.168.206.8");
-		factory.setVirtualHost("/");
-		factory.setPort(5672);
-		return factory.newConnection();
-	}
+    public static Connection getConnection() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setUsername("admin");
+        factory.setPassword("123456");
+        factory.setHost("192.168.206.8");
+        factory.setVirtualHost("/");
+        factory.setPort(5672);
+        return factory.newConnection();
+    }
 }

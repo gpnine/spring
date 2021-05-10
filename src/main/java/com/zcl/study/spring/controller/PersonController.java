@@ -26,41 +26,41 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/person")
 public class PersonController {
 
-	@Autowired
-	private PersonService personService;
+    @Autowired
+    private PersonService personService;
 
-	@GetMapping(value = "/name")
-	public String getPersonName() {
-		String personName = personService.personName();
-		System.out.println(personName);
-		return personName;
-	}
+    @GetMapping(value = "/name")
+    public String getPersonName() {
+        String personName = personService.personName();
+        System.out.println(personName);
+        return personName;
+    }
 
-	@PostMapping(value = "/add")
-	public int addPerson(HttpServletRequest request, HttpServletResponse response) {
-		String name = request.getParameter("name");
-		Person person = new Person();
-		person.setName(name);
-		PersonService proxyService = (PersonService) new PersonProxy().getProxyInstance(personService);
-		return proxyService.insertPerson(person);
-	}
+    @PostMapping(value = "/add")
+    public int addPerson(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        Person person = new Person();
+        person.setName(name);
+        PersonService proxyService = (PersonService) new PersonProxy().getProxyInstance(personService);
+        return proxyService.insertPerson(person);
+    }
 
-	@GetMapping(value = "/delete")
-	public boolean deletePerson(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
-		PersonService proxyService = (PersonService) new CglibProxy().getProxy(personService);
-		return proxyService.deletePerson(id);
-	}
+    @GetMapping(value = "/delete")
+    public boolean deletePerson(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        PersonService proxyService = (PersonService) new CglibProxy().getProxy(personService);
+        return proxyService.deletePerson(id);
+    }
 
-	@GetMapping("/info")
-	public String productInfo(){
-		String currentUser;
-		Object principl = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if(principl instanceof UserDetails) {
-			currentUser = ((UserDetails)principl).getUsername();
-		}else {
-			currentUser = principl.toString();
-		}
-		return " some product info,currentUser is: "+currentUser;
-	}
+    @GetMapping("/info")
+    public String productInfo() {
+        String currentUser;
+        Object principl = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principl instanceof UserDetails) {
+            currentUser = ((UserDetails) principl).getUsername();
+        } else {
+            currentUser = principl.toString();
+        }
+        return " some product info,currentUser is: " + currentUser;
+    }
 }

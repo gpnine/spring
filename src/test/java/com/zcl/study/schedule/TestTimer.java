@@ -14,17 +14,17 @@ import java.util.TimerTask;
  */
 public class TestTimer {
 
-	public static void main(String[] args) {
-		Timer timer = new Timer();
-		TimerTask task = new TimerTask() {
-			@Override
-			public void run() {
-				System.out.println("asdfasd");
-			}
-		};
+    public static void main(String[] args) {
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("asdfasd");
+            }
+        };
 //		timer.schedule(task, 3000);
 //		timer.cancel();
-		timer.schedule(task, 1000, 1000);
+        timer.schedule(task, 1000, 1000);
 //		TimerTask task2 = new TimerTask() {
 //			@Override
 //			public void run() {
@@ -51,12 +51,12 @@ public class TestTimer {
 //			}
 //		};
 //		timer.schedule(task3, 1000, 1000);
-	}
+    }
 
-	@Test
-	public void testRightMove() {
-		int period = 8;
-		System.out.println(period >>= 2);
-	}
+    @Test
+    public void testRightMove() {
+        int period = 8;
+        System.out.println(period >>= 2);
+    }
 
 }

@@ -10,13 +10,13 @@ import com.zcl.study.spring.model.Person;
  * @date: 20-3-10 .
  */
 public interface PersonService {
-	String personName();
+    String personName();
 
-	int insertPerson(Person person);
+    int insertPerson(Person person);
 
-	boolean deletePerson(String id);
+    boolean deletePerson(String id);
 
-	void testPerson(Person person);
+    void testPerson(Person person);
 
-	void sayHello();
+    void sayHello();
 }

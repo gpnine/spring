@@ -19,10 +19,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @ComponentScan({"com.zcl.study.spring.calculation", "com.zcl.study.spring.event"})
 public class MyAspectConfig {
 
-	@Autowired
-	public MyAspect myAspect;
+    @Autowired
+    public MyAspect myAspect;
 
-	@Autowired
-	public MyCalculator myCalculator;
+    @Autowired
+    public MyCalculator myCalculator;
 
 }

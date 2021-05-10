@@ -12,27 +12,27 @@ import java.net.Socket;
  * @author: Chenglin Zhu .
  * @date: 20-3-15 .
  */
-public class ServerHandler implements Runnable{
-	private Socket socket;
+public class ServerHandler implements Runnable {
+    private Socket socket;
 
-	public ServerHandler(Socket socket) {
-		this.socket = socket;
-	}
+    public ServerHandler(Socket socket) {
+        this.socket = socket;
+    }
 
-	@Override
-	public void run() {
-		InputStream in = null;
-		try {
-			in = socket.getInputStream();
-			byte[] buffer = new byte[1024];
-			int len = 0;
-			while ((len = in.read(buffer)) > 0) {
-				System.out.println(new String(buffer, 0, len));
-			}
-			OutputStream out = socket.getOutputStream();
-			out.write("hello".getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void run() {
+        InputStream in = null;
+        try {
+            in = socket.getInputStream();
+            byte[] buffer = new byte[1024];
+            int len = 0;
+            while ((len = in.read(buffer)) > 0) {
+                System.out.println(new String(buffer, 0, len));
+            }
+            OutputStream out = socket.getOutputStream();
+            out.write("hello".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

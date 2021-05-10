@@ -15,17 +15,17 @@ import java.util.concurrent.Executors;
  */
 public class ExecutorsCurrentServer {
 
-	public static void main(String[] args) {
-		// 不适用于高并发
-		ExecutorService executorService = Executors.newCachedThreadPool(); // newFixedThreadPool(60);
-		try {
-			ServerSocket serverSocket = new ServerSocket(8080);
-			while (true){
-				Socket socket = serverSocket.accept();
-				executorService.submit(new ServerHandler(socket));
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+        // 不适用于高并发
+        ExecutorService executorService = Executors.newCachedThreadPool(); // newFixedThreadPool(60);
+        try {
+            ServerSocket serverSocket = new ServerSocket(8080);
+            while (true) {
+                Socket socket = serverSocket.accept();
+                executorService.submit(new ServerHandler(socket));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -13,15 +13,15 @@ import java.net.Socket;
  */
 public class CurrentServer {
 
-	public static void main(String[] args) {
-		try {
-			ServerSocket serverSocket = new ServerSocket(8080);
-			while (true){
-				Socket socket = serverSocket.accept();
-				new Thread(new ServerHandler(socket)).start();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(8080);
+            while (true) {
+                Socket socket = serverSocket.accept();
+                new Thread(new ServerHandler(socket)).start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -16,28 +16,28 @@ import java.util.concurrent.TimeUnit;
  */
 public class TestScheduledExecutorService {
 
-	public static void main(String[] args) {
-		ScheduledExecutorService sc = Executors.newSingleThreadScheduledExecutor();
-		ScheduledFuture future = sc.schedule(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					Thread.sleep(3);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				System.out.println(123456);
-			}
-		}, 1000, TimeUnit.MILLISECONDS);
-		try {
-			System.out.println(future.get());
-		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
-		}
-		ScheduledThreadPoolExecutor sc1 = new ScheduledThreadPoolExecutor(1);
-		sc1.scheduleAtFixedRate(() -> System.out.println("asdf"), 0, 1, TimeUnit.SECONDS);
-		ScheduledExecutorService sc2 = Executors.newScheduledThreadPool(2);
-		sc2.scheduleWithFixedDelay(() -> System.out.println("bbbbbb"), 1, 1, TimeUnit.SECONDS);
-	}
+    public static void main(String[] args) {
+        ScheduledExecutorService sc = Executors.newSingleThreadScheduledExecutor();
+        ScheduledFuture future = sc.schedule(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(123456);
+            }
+        }, 1000, TimeUnit.MILLISECONDS);
+        try {
+            System.out.println(future.get());
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        ScheduledThreadPoolExecutor sc1 = new ScheduledThreadPoolExecutor(1);
+        sc1.scheduleAtFixedRate(() -> System.out.println("asdf"), 0, 1, TimeUnit.SECONDS);
+        ScheduledExecutorService sc2 = Executors.newScheduledThreadPool(2);
+        sc2.scheduleWithFixedDelay(() -> System.out.println("bbbbbb"), 1, 1, TimeUnit.SECONDS);
+    }
 
 }

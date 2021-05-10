@@ -2,27 +2,27 @@
 <!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
         "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
 <module name="com.puppycrawl.tools.checkstyle.Checker">
-	<!-- Root Checks -->
-	<module name="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck">
-		<property name="lineSeparator" value="lf"/>
-	</module>
+    <!-- Root Checks -->
+    <module name="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck">
+        <property name="lineSeparator" value="lf"/>
+    </module>
 
-	<!-- TreeWalker Checks -->
-	<module name="com.puppycrawl.tools.checkstyle.TreeWalker">
-		<module name="LineLength">
-			<property name="max" value="240"/>
-			<property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-		</module>
-		<!-- Annotations --> 
-		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationUseStyleCheck">
-			<property name="elementStyle" value="compact" />
-		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.PackageAnnotationCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
-			<property name="allowSamelineSingleParameterlessAnnotation"
-				value="false" />
-		</module>
+    <!-- TreeWalker Checks -->
+    <module name="com.puppycrawl.tools.checkstyle.TreeWalker">
+        <module name="LineLength">
+            <property name="max" value="240"/>
+            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+        </module>
+        <!-- Annotations -->
+        <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationUseStyleCheck">
+            <property name="elementStyle" value="compact"/>
+        </module>
+        <module name="com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheck"/>
+        <module name="com.puppycrawl.tools.checkstyle.checks.annotation.PackageAnnotationCheck"/>
+        <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
+            <property name="allowSamelineSingleParameterlessAnnotation"
+                      value="false"/>
+        </module>
 
         <!-- Block Checks -->
         <module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck">

@@ -11,27 +11,27 @@ import java.io.Serializable;
  */
 public class User implements Cloneable, Serializable {
 
-	private static final long serialVersionUID = -2010713282316095422L;
+    private static final long serialVersionUID = -2010713282316095422L;
 
-	String name;
+    String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"name='" + name + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

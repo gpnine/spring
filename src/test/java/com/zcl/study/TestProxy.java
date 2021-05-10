@@ -15,13 +15,13 @@ import org.junit.jupiter.api.Test;
  */
 public class TestProxy {
 
-	@Test
-	public void test() {
-		// JDK动态代理
-		PersonService personService = new PersonServiceImpl();
-		Person person = new Person();
-		person.setName("kkk");
-		PersonService proxyService = (PersonService) new PersonProxy().getProxyInstance(personService);
-		proxyService.testPerson(person);
-	}
+    @Test
+    public void test() {
+        // JDK动态代理
+        PersonService personService = new PersonServiceImpl();
+        Person person = new Person();
+        person.setName("kkk");
+        PersonService proxyService = (PersonService) new PersonProxy().getProxyInstance(personService);
+        proxyService.testPerson(person);
+    }
 }

@@ -12,24 +12,24 @@ import org.springframework.scheduling.support.CronTrigger;
  * @date: 20-4-13 .
  */
 public class TestTaskSchedule implements Runnable {
-	private ConcurrentTaskScheduler tpts = new ConcurrentTaskScheduler();
-	private ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+    private ConcurrentTaskScheduler tpts = new ConcurrentTaskScheduler();
+    private ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
 
-	private void start() {
+    private void start() {
 //		tpts.schedule(this, new Date());
 //		taskScheduler.setPoolSize(10);
 //		//必须得先初始化，才能使用
-		taskScheduler.initialize();
-		taskScheduler.schedule(this, new CronTrigger("0/1 * * * * ?"));
-	}
+        taskScheduler.initialize();
+        taskScheduler.schedule(this, new CronTrigger("0/1 * * * * ?"));
+    }
 
-	public void run() {
-		Thread ct = Thread.currentThread();
-		System.out.println("current id:" + ct.getId());
-		System.out.println("current name:" + ct.getName());
-	}
+    public void run() {
+        Thread ct = Thread.currentThread();
+        System.out.println("current id:" + ct.getId());
+        System.out.println("current name:" + ct.getName());
+    }
 
-	public static void main(String[] args) {
-		new TestTaskSchedule().start();
-	}
+    public static void main(String[] args) {
+        new TestTaskSchedule().start();
+    }
 }

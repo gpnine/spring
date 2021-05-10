@@ -10,7 +10,7 @@
 <head>
     <title>Title</title>
     <%
-//        request.setAttribute("name","tom");
+        //        request.setAttribute("name","tom");
 //        request.setAttribute("name","jerry");
 //        request.removeAttribute("name");
 

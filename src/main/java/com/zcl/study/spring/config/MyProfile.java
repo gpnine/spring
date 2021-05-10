@@ -21,45 +21,45 @@ import java.beans.PropertyVetoException;
 //@Configuration
 @PropertySource("classpath:/db.properties")
 public class MyProfile implements EmbeddedValueResolverAware {
-	@Value("${db.username}")
-	private String userName;
-	private String driverClass;
+    @Value("${db.username}")
+    private String userName;
+    private String driverClass;
 
-	@Profile("dev")
-	@Bean("devDataSource")
-	public DataSource devDataSource(@Value("${db.password}") String pwd) throws PropertyVetoException {
-		ComboPooledDataSource dataSource = new ComboPooledDataSource();
-		dataSource.setUser(userName);
-		dataSource.setPassword(pwd);
-		dataSource.setJdbcUrl("jdbc://mysql:localhost:3306/test");
-		dataSource.setDriverClass(driverClass);
-		return dataSource;
-	}
+    @Profile("dev")
+    @Bean("devDataSource")
+    public DataSource devDataSource(@Value("${db.password}") String pwd) throws PropertyVetoException {
+        ComboPooledDataSource dataSource = new ComboPooledDataSource();
+        dataSource.setUser(userName);
+        dataSource.setPassword(pwd);
+        dataSource.setJdbcUrl("jdbc://mysql:localhost:3306/test");
+        dataSource.setDriverClass(driverClass);
+        return dataSource;
+    }
 
-	@Profile("test")
-	@Bean("testDataSource")
-	public DataSource testDataSource(@Value("${db.password}") String pwd) throws PropertyVetoException {
-		ComboPooledDataSource dataSource = new ComboPooledDataSource();
-		dataSource.setUser(userName);
-		dataSource.setPassword(pwd);
-		dataSource.setJdbcUrl("jdbc://mysql:localhost:3306/test1");
-		dataSource.setDriverClass(driverClass);
-		return dataSource;
-	}
+    @Profile("test")
+    @Bean("testDataSource")
+    public DataSource testDataSource(@Value("${db.password}") String pwd) throws PropertyVetoException {
+        ComboPooledDataSource dataSource = new ComboPooledDataSource();
+        dataSource.setUser(userName);
+        dataSource.setPassword(pwd);
+        dataSource.setJdbcUrl("jdbc://mysql:localhost:3306/test1");
+        dataSource.setDriverClass(driverClass);
+        return dataSource;
+    }
 
-	@Profile("prod")
-	@Bean("prodDataSource")
-	public DataSource prodDataSource(@Value("${db.password}") String pwd) throws PropertyVetoException {
-		ComboPooledDataSource dataSource = new ComboPooledDataSource();
-		dataSource.setUser(userName);
-		dataSource.setPassword(pwd);
-		dataSource.setJdbcUrl("jdbc://mysql:localhost:3306/test2");
-		dataSource.setDriverClass(driverClass);
-		return dataSource;
-	}
+    @Profile("prod")
+    @Bean("prodDataSource")
+    public DataSource prodDataSource(@Value("${db.password}") String pwd) throws PropertyVetoException {
+        ComboPooledDataSource dataSource = new ComboPooledDataSource();
+        dataSource.setUser(userName);
+        dataSource.setPassword(pwd);
+        dataSource.setJdbcUrl("jdbc://mysql:localhost:3306/test2");
+        dataSource.setDriverClass(driverClass);
+        return dataSource;
+    }
 
-	@Override
-	public void setEmbeddedValueResolver(StringValueResolver stringValueResolver) {
-		driverClass = stringValueResolver.resolveStringValue("${db.driverClass}");
-	}
+    @Override
+    public void setEmbeddedValueResolver(StringValueResolver stringValueResolver) {
+        driverClass = stringValueResolver.resolveStringValue("${db.driverClass}");
+    }
 }

@@ -8,5 +8,5 @@ package com.zcl.study.spring.model;
  * @date: 20-3-14 .
  */
 public enum ESingleton1 {
-	INSANCE,
+    INSANCE,
 }

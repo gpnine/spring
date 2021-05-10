@@ -8,14 +8,14 @@ package com.zcl.study.spring.model;
  * @date: 20-3-14 .
  */
 public class LanSingleton2 {
-	private LanSingleton2() {
-	}
+    private LanSingleton2() {
+    }
 
-	public static LanSingleton2 getInstance() {
-		return InnerClass.instance;
-	}
+    public static LanSingleton2 getInstance() {
+        return InnerClass.instance;
+    }
 
-	private static class InnerClass {
-		private static final LanSingleton2 instance = new LanSingleton2();
-	}
+    private static class InnerClass {
+        private static final LanSingleton2 instance = new LanSingleton2();
+    }
 }

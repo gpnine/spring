@@ -16,17 +16,17 @@ import java.util.concurrent.TimeoutException;
  */
 public class Sender {
 
-	private static final String EXCHANGE_NAME = "test_topic_exchange";
+    private static final String EXCHANGE_NAME = "test_topic_exchange";
 
-	public static void main(String[] args) throws IOException, TimeoutException {
-		Connection connection = ConnectUtils.getConnection();
-		Channel channel = connection.createChannel();
-		channel.exchangeDeclare(EXCHANGE_NAME, "topic");
+    public static void main(String[] args) throws IOException, TimeoutException {
+        Connection connection = ConnectUtils.getConnection();
+        Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, "topic");
 
-		String routeKey = "Goods.2";
-		channel.basicPublish(EXCHANGE_NAME, routeKey, false, null, "topic方式".getBytes());
-		channel.close();
-		connection.close();
-	}
+        String routeKey = "Goods.2";
+        channel.basicPublish(EXCHANGE_NAME, routeKey, false, null, "topic方式".getBytes());
+        channel.close();
+        connection.close();
+    }
 
 }

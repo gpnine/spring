@@ -15,20 +15,20 @@ import java.net.Socket;
  */
 public class Server {
 
-	public static void main(String[] args) {
-		try {
-			ServerSocket serverSocket = new ServerSocket(8080);
-			Socket socket = serverSocket.accept(); // 没有客户端时，accept方法会一直停在这
-			InputStream in = socket.getInputStream();
-			byte[] buffer = new byte[1024];
-			int len = 0;
-			while ((len = in.read(buffer)) > 0) {
-				System.out.println(new String(buffer, 0, len));
-			}
-			OutputStream out = socket.getOutputStream();
-			out.write("hello".getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(8080);
+            Socket socket = serverSocket.accept(); // 没有客户端时，accept方法会一直停在这
+            InputStream in = socket.getInputStream();
+            byte[] buffer = new byte[1024];
+            int len = 0;
+            while ((len = in.read(buffer)) > 0) {
+                System.out.println(new String(buffer, 0, len));
+            }
+            OutputStream out = socket.getOutputStream();
+            out.write("hello".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

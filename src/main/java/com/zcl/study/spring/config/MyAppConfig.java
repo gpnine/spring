@@ -22,9 +22,9 @@ import org.springframework.context.annotation.Scope;
 @Import(MyProfile.class)
 public class MyAppConfig {
 
-	@Scope("prototype")
-	@Bean("myDao")
-	public MyDao getMyDao() {
-		return new MyDao();
-	}
+    @Scope("prototype")
+    @Bean("myDao")
+    public MyDao getMyDao() {
+        return new MyDao();
+    }
 }

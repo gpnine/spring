@@ -19,25 +19,25 @@ import org.quartz.impl.StdSchedulerFactory;
  */
 public class TestQuartz {
 
-	public static void main(String[] args) throws SchedulerException, InterruptedException {
-		SchedulerFactory schedulerFactory = new StdSchedulerFactory();
-		Scheduler scheduler = schedulerFactory.getScheduler();
-		scheduler.start();
-		JobDetail job = JobBuilder.newJob(PrintJob.class)
-				.withIdentity("job1", "group1")
-				.usingJobData("jobSays", "Hello World!")
-				.usingJobData("myFloatValue", 3.141f)
-				.build();
-		Trigger trigger = TriggerBuilder.newTrigger()
-				.withIdentity("trigger1", "triggerGroup1")
-				.startNow()
-				.withSchedule(SimpleScheduleBuilder.simpleSchedule()
-						.withIntervalInSeconds(1)
-						.repeatForever())
-				.build();
+    public static void main(String[] args) throws SchedulerException, InterruptedException {
+        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
+        Scheduler scheduler = schedulerFactory.getScheduler();
+        scheduler.start();
+        JobDetail job = JobBuilder.newJob(PrintJob.class)
+                .withIdentity("job1", "group1")
+                .usingJobData("jobSays", "Hello World!")
+                .usingJobData("myFloatValue", 3.141f)
+                .build();
+        Trigger trigger = TriggerBuilder.newTrigger()
+                .withIdentity("trigger1", "triggerGroup1")
+                .startNow()
+                .withSchedule(SimpleScheduleBuilder.simpleSchedule()
+                        .withIntervalInSeconds(1)
+                        .repeatForever())
+                .build();
 //		scheduler.standby();
-		scheduler.scheduleJob(job, trigger);
-		Thread.sleep(5000);
-		scheduler.shutdown();
-	}
+        scheduler.scheduleJob(job, trigger);
+        Thread.sleep(5000);
+        scheduler.shutdown();
+    }
 }

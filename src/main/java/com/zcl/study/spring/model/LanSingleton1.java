@@ -8,19 +8,19 @@ package com.zcl.study.spring.model;
  * @date: 20-3-14 .
  */
 public class LanSingleton1 {
-	private static LanSingleton1 instance;
+    private static LanSingleton1 instance;
 
-	private LanSingleton1() {
-	}
+    private LanSingleton1() {
+    }
 
-	public static LanSingleton1 getInstance() {
-		if (instance == null) {
-			synchronized (LanSingleton1.class) {
-				if (instance == null) {
-					instance = new LanSingleton1();
-				}
-			}
-		}
-		return instance;
-	}
+    public static LanSingleton1 getInstance() {
+        if (instance == null) {
+            synchronized (LanSingleton1.class) {
+                if (instance == null) {
+                    instance = new LanSingleton1();
+                }
+            }
+        }
+        return instance;
+    }
 }

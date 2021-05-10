@@ -9,6 +9,6 @@ package com.zcl.study.spring.lucense;
  */
 public class CreateIndex {
 
-	public static void main(String[] args) {
-	}
+    public static void main(String[] args) {
+    }
 }

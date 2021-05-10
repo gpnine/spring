@@ -20,32 +20,32 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class MyAspect {
 
-	@Pointcut(value = "execution(* com.zcl.study.spring.calculation.MyCalculator.*(..))")
-	public void pointCut() {
+    @Pointcut(value = "execution(* com.zcl.study.spring.calculation.MyCalculator.*(..))")
+    public void pointCut() {
 
-	}
+    }
 
-	@Before(value = "execution(public int com.zcl.study.spring.calculation.MyCalculator.div(..))")
-	public void beforeEvent(JoinPoint joinPoint) {
-		String name = joinPoint.getSignature().getName();
-		System.out.println(name + "方法执行前");
-	}
+    @Before(value = "execution(public int com.zcl.study.spring.calculation.MyCalculator.div(..))")
+    public void beforeEvent(JoinPoint joinPoint) {
+        String name = joinPoint.getSignature().getName();
+        System.out.println(name + "方法执行前");
+    }
 
-	@After(value = "pointCut()")
-	public void afterEvent(JoinPoint joinPoint) {
-		String name = joinPoint.getSignature().getName();
-		System.out.println(name + "方法执行后");
-	}
+    @After(value = "pointCut()")
+    public void afterEvent(JoinPoint joinPoint) {
+        String name = joinPoint.getSignature().getName();
+        System.out.println(name + "方法执行后");
+    }
 
-	@AfterThrowing(value = "pointCut()", throwing = "exception")
-	public void throwEvent(JoinPoint joinPoint, Throwable exception) {
-		String name = joinPoint.getSignature().getName();
-		System.out.println(name + "异常" + exception.getLocalizedMessage());
-	}
+    @AfterThrowing(value = "pointCut()", throwing = "exception")
+    public void throwEvent(JoinPoint joinPoint, Throwable exception) {
+        String name = joinPoint.getSignature().getName();
+        System.out.println(name + "异常" + exception.getLocalizedMessage());
+    }
 
-	@AfterReturning(value = "pointCut()", returning = "result")
-	public void returnEvent(JoinPoint joinPoint, Integer result) {
-		String name = joinPoint.getSignature().getName();
-		System.out.println(name + "方法返回" + result);
-	}
+    @AfterReturning(value = "pointCut()", returning = "result")
+    public void returnEvent(JoinPoint joinPoint, Integer result) {
+        String name = joinPoint.getSignature().getName();
+        System.out.println(name + "方法返回" + result);
+    }
 }

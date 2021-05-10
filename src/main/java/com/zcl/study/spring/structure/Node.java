@@ -9,10 +9,10 @@ package com.zcl.study.spring.structure;
  */
 public class Node {
 
-	int data;
-	Node next = null;
+    int data;
+    Node next = null;
 
-	public Node(int data) {
-		this.data = data;
-	}
+    public Node(int data) {
+        this.data = data;
+    }
 }

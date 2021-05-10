@@ -16,16 +16,16 @@ import java.util.concurrent.TimeoutException;
  */
 public class Publisher {
 
-	private static final String EXCHANGE_TYPE = "fanout";
-	private static final String EXCHANGE_NAME = "test_queue_fanout";
+    private static final String EXCHANGE_TYPE = "fanout";
+    private static final String EXCHANGE_NAME = "test_queue_fanout";
 
-	public static void main(String[] args) throws IOException, TimeoutException {
-		Connection connection = ConnectUtils.getConnection();
-		Channel channel = connection.createChannel();
-		channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_TYPE);
-		// 往交换机里发
-		channel.basicPublish(EXCHANGE_NAME, "", null, "分发".getBytes());
-		channel.close();
-		connection.close();
-	}
+    public static void main(String[] args) throws IOException, TimeoutException {
+        Connection connection = ConnectUtils.getConnection();
+        Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_TYPE);
+        // 往交换机里发
+        channel.basicPublish(EXCHANGE_NAME, "", null, "分发".getBytes());
+        channel.close();
+        connection.close();
+    }
 }

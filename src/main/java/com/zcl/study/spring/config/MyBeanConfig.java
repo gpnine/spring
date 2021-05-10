@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 public class MyBeanConfig {
 
     @Bean(initMethod = "initPerson")
-    public Person person(){
+    public Person person() {
         Person person = new Person();
         person.setName("z3");
         person.setAge(1);

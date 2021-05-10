@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/person2")
 public class PersonController2 {
 
-	@Autowired
-	private PersonService personService;
+    @Autowired
+    private PersonService personService;
 
-	@RequestMapping(value = "/name")
-	@ResponseBody
-	public String getPersonName() {
-		String personName = personService.personName();
-		System.out.println(personName);
-		return personName;
-	}
+    @RequestMapping(value = "/name")
+    @ResponseBody
+    public String getPersonName() {
+        String personName = personService.personName();
+        System.out.println(personName);
+        return personName;
+    }
 }

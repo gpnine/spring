@@ -19,21 +19,21 @@ import java.util.concurrent.TimeoutException;
  * @date: 20-3-15 .
  */
 public class Consumer1 {
-	private static final String QUEUE_NAME = "test_confirm";
+    private static final String QUEUE_NAME = "test_confirm";
 
-	public static void main(String[] args) throws IOException, TimeoutException {
-		Connection connection = ConnectUtils.getConnection();
-		Channel channel = connection.createChannel();
+    public static void main(String[] args) throws IOException, TimeoutException {
+        Connection connection = ConnectUtils.getConnection();
+        Channel channel = connection.createChannel();
 
-		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
-		channel.basicConsume(QUEUE_NAME, false, new DefaultConsumer(channel) {
-			@Override
-			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-				System.out.println("reciver tx:"+new String(body, StandardCharsets.UTF_8));
-			}
-		});
+        channel.basicConsume(QUEUE_NAME, false, new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                System.out.println("reciver tx:" + new String(body, StandardCharsets.UTF_8));
+            }
+        });
 
 
-	}
+    }
 }

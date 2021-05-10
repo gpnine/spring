@@ -5,13 +5,13 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 
 /**
- * 
  * @author HHUA
- *
  */
 public class IpUtil {
 
-    /** 获取MAC地址的方法 */
+    /**
+     * 获取MAC地址的方法
+     */
     public static String getMACAddress(InetAddress ia) throws Exception {
         // 获得网络接口对象（即网卡），并得到mac地址，mac地址存在于一个byte数组中。
         byte[] mac = NetworkInterface.getByInetAddress(ia).getHardwareAddress();
@@ -31,7 +31,7 @@ public class IpUtil {
 
     /**
      * 获取登录用户IP地址
-     * 
+     *
      * @param request
      * @return
      */

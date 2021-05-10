@@ -15,15 +15,15 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  * @date: 20-3-10 .
  */
 public class MyCondition implements Condition {
-	@Override
-	public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
-		ConfigurableListableBeanFactory beanFactory = conditionContext.getBeanFactory();
-		Environment environment = conditionContext.getEnvironment();
-		BeanDefinitionRegistry registry = conditionContext.getRegistry();
-		String property = environment.getProperty("os.name");
-		if (property.equals("Linux")) {
-			return true;
-		}
-		return false;
-	}
+    @Override
+    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
+        ConfigurableListableBeanFactory beanFactory = conditionContext.getBeanFactory();
+        Environment environment = conditionContext.getEnvironment();
+        BeanDefinitionRegistry registry = conditionContext.getRegistry();
+        String property = environment.getProperty("os.name");
+        if (property.equals("Linux")) {
+            return true;
+        }
+        return false;
+    }
 }

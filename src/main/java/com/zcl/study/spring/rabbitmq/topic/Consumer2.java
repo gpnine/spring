@@ -20,35 +20,35 @@ import java.util.concurrent.TimeoutException;
  * @date: 20-3-15 .
  */
 public class Consumer2 {
-	private static final String EXCHANGE_NAME = "test_topic_exchange";
-	private static final String QUEUE_NAME = "test_queue_topic_2";
+    private static final String EXCHANGE_NAME = "test_topic_exchange";
+    private static final String QUEUE_NAME = "test_queue_topic_2";
 
-	public static void main(String[] args) throws IOException, TimeoutException {
-		Connection connection = ConnectUtils.getConnection();
-		Channel channel = connection.createChannel();
+    public static void main(String[] args) throws IOException, TimeoutException {
+        Connection connection = ConnectUtils.getConnection();
+        Channel channel = connection.createChannel();
 
-		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-		channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "Goods.#");
+        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "Goods.#");
 
-		channel.basicQos(1);
-		//　定义消费者
-		Consumer consumer = new DefaultConsumer(channel) {
-			@Override
-			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-				System.out.println(new String(body, StandardCharsets.UTF_8));
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				} finally {
-					System.out.println("[2] done");
-					// 手动回执
-					channel.basicAck(envelope.getDeliveryTag(), false);
-				}
-			}
-		};
-		//　监听队列
-		boolean autoAck = false; // 自动应答,false等待消费者显示回复确认,true不管消费者是否真正的消费了这些消息直接设置为确认
-		channel.basicConsume(QUEUE_NAME, autoAck, consumer);
-	}
+        channel.basicQos(1);
+        //　定义消费者
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                System.out.println(new String(body, StandardCharsets.UTF_8));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    System.out.println("[2] done");
+                    // 手动回执
+                    channel.basicAck(envelope.getDeliveryTag(), false);
+                }
+            }
+        };
+        //　监听队列
+        boolean autoAck = false; // 自动应答,false等待消费者显示回复确认,true不管消费者是否真正的消费了这些消息直接设置为确认
+        channel.basicConsume(QUEUE_NAME, autoAck, consumer);
+    }
 }

@@ -8,8 +8,8 @@ package com.zcl.study.spring.model;
  * @date: 20-3-14 .
  */
 public class ESingleton {
-	public static final ESingleton INSTANCE = new ESingleton();
+    public static final ESingleton INSTANCE = new ESingleton();
 
-	private ESingleton() {
-	}
+    private ESingleton() {
+    }
 }

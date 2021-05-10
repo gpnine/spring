@@ -20,6 +20,6 @@ import java.lang.annotation.Target;
 @Documented
 @Qualifier("Asian")
 public @interface Asian {
-	String skin() default "yellow";
+    String skin() default "yellow";
 
 }

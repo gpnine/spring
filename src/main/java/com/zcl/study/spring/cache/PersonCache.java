@@ -13,8 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonCache {
 
-	private LoadingCache<String, String> dataListCache;
-
+    private LoadingCache<String, String> dataListCache;
 
 
 }

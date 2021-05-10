@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyCalculator {
 
-	public int div(int m,int n){
-		int i = m / n;
-		return i;
-	}
+    public int div(int m, int n) {
+        int i = m / n;
+        return i;
+    }
 }
